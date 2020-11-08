@@ -27,9 +27,15 @@
     <ClInclude Include="src\Legio\EntryPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Legio\Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Legio\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Legio\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
