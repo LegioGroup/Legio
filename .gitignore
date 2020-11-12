@@ -5,3 +5,5 @@ intermediate/
 
 #Files
 *.user
+*.vcxproj
+*.vcxproj.filters
