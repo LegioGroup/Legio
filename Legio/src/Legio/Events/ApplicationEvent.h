@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace LG {
 
 	class LG_API WindowResizeEvent : public Event 

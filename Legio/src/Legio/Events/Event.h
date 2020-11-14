@@ -2,8 +2,6 @@
 
 #include "Legio/LGCore.h"
 
-#include <string.h>
-#include <functional>
 
 namespace LG {
 

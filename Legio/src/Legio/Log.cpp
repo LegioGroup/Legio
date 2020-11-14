@@ -1,3 +1,4 @@
+#include "lgpch.h"
 #include "Log.h"
 namespace LG 
 {

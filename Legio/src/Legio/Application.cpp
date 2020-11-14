@@ -1,3 +1,4 @@
+#include "lgpch.h"
 #include "Application.h"
 
 #include <Legio/Events/ApplicationEvent.h>

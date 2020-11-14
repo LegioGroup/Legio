@@ -17,9 +17,13 @@ project "Legio"
     location "Legio"
     kind "SharedLib"
     language "C++"
+    
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("intermediate/" .. outputdir .. "/%{prj.name}")
 
+    pchheader "lgpch.h"
+    pchsource "Legio/src/lgpch.cpp"
+    
     files
     {
         "%{prj.name}/src/**.h",
