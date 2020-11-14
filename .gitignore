@@ -7,3 +7,6 @@ intermediate/
 *.user
 *.vcxproj
 *.vcxproj.filters
+
+#Exceptions
+!vendor/bin
