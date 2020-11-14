@@ -2,7 +2,6 @@
 #include "Application.h"
 
 #include <Legio/Events/ApplicationEvent.h>
-#include "Legio/Log.h"
 #include <GLFW/glfw3.h>
 
 namespace LG
