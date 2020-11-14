@@ -11,8 +11,10 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Legio/Log.h"
+
 #ifdef LG_PLATFORM_WINDOWS
-	#include <Windows.h>
+#include <Windows.h>
 #endif
 
 
