@@ -1,19 +1,19 @@
 #pragma once
 #include "LGCore.h"
 
-namespace LG 
+namespace LG
 {
-	class LG_API Application
-	{
-	public:
-		Application();
-		virtual ~Application();
+  class LG_API Application
+  {
+  public:
+    Application();
+    virtual ~Application();
 
-		void Run();
+    void Run();
 
-	};
-	
-	Application* CreateApplication();
+  };
+
+  Application* CreateApplication();
 
 }
 
