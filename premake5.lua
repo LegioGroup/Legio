@@ -38,7 +38,7 @@ project "Legio"
     {
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
-        "%{IncludeDir.GLFW}"
+        IncludeDir.GLFW
     }
 
     links
@@ -55,7 +55,7 @@ project "Legio"
         defines
         {
             "LG_PLATFORM_WINDOWS",
-            "LG_BUILD_DLL"
+            "LG_BUILD_DLL",
         }
 
         postbuildcommands

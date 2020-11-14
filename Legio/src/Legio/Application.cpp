@@ -3,13 +3,14 @@
 
 #include <Legio/Events/ApplicationEvent.h>
 #include "Legio/Log.h"
+#include <GLFW/glfw3.h>
 
 namespace LG
 {
 
   Application::Application()
   {
-
+    m_Window = std::unique_ptr<Window>(Window::Create());
   }
 
   Application::~Application()
@@ -19,8 +20,12 @@ namespace LG
 
   void Application::Run()
   {
-    WindowResizeEvent e(1280, 720);
-    LG_TRACE(e);
-    while (true);
+
+    while (m_running) 
+    {
+      glClearColor(1, 0.5f, 0, 1);
+      glClear(GL_COLOR_BUFFER_BIT);
+      m_Window->OnUpdate();
+    }
   }
 }

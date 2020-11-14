@@ -1,8 +1,9 @@
 #pragma once
 #include "LGCore.h"
+#include "Window.h"
 
-namespace LG
-{
+namespace LG{
+
   class LG_API Application
   {
   public:
@@ -10,6 +11,9 @@ namespace LG
     virtual ~Application();
 
     void Run();
+  private:
+    std::unique_ptr<Window> m_Window;
+    bool m_running = true;
 
   };
 
