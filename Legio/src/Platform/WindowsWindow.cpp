@@ -1,7 +1,6 @@
 #include "lgpch.h"
 
 #include "WindowsWindow.h"
-#include "Legio/Log.h"
 #include <Legio/Events/ApplicationEvent.h>
 #include <Legio/Events/MouseEvent.h>
 #include <Legio/Events/KeyEvent.h>
@@ -130,8 +129,6 @@ namespace LG {
         MouseMovedEvent event(static_cast<float>(x), static_cast<float>(y));
         data.EventCallback(event);
       });
-
-
 
   }
 
