@@ -17,5 +17,5 @@
   #define LG_ASSERT(x, ...)
   #define LG_CORE_ASSERT(x, ...)
 #endif
-
+#define LG_BIND_EVENT_FN(x) std::bind(&x, this, std::placeholders::_1)
 #define BIT(x) (1 << x)

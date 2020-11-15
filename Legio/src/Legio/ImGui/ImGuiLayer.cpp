@@ -8,6 +8,7 @@
 
 #include "Legio/Application.h"
 
+
 namespace LG {
 
   ImGuiLayer::ImGuiLayer()
@@ -85,9 +86,63 @@ namespace LG {
 
   }
 
-  void ImGuiLayer::OnEvent(Event& event)
+  void ImGuiLayer::OnEvent(Event& e)
   {
-    LG_TRACE("ImGuiLayer::{0}", event);
+    LG_TRACE("ImGuiLayer::{0}", e);
+    EventDispatcher dispatcher(e);
+    dispatcher.Dispatch<MouseButtonPressedEvent>(LG_BIND_EVENT_FN(ImGuiLayer::OnMouseButtonPressedEvent));
+    dispatcher.Dispatch<MouseButtonReleasedEvent>(LG_BIND_EVENT_FN(ImGuiLayer::OnMouseButtonReleasedEvent));
+    dispatcher.Dispatch<MouseMovedEvent>(LG_BIND_EVENT_FN(ImGuiLayer::OnMouseMovedEvent));
+    dispatcher.Dispatch<MouseScrolledEvent>(LG_BIND_EVENT_FN(ImGuiLayer::OnMouseScrolledEvent));
+    dispatcher.Dispatch<KeyPressedEvent>(LG_BIND_EVENT_FN(ImGuiLayer::OnKeyPressedEvent));
+    //dispatcher.Dispatch<KeyTypedEvent>(LG_BIND_EVENT_FN(ImGuiLayer::OnKeyTypedEvent));
+    dispatcher.Dispatch<WindowResizeEvent>(LG_BIND_EVENT_FN(ImGuiLayer::OnWindowResizeEvent));
+  }
+
+  bool ImGuiLayer::OnMouseButtonPressedEvent(MouseButtonPressedEvent& e)
+  {
+    return true;
+  }
+
+  bool ImGuiLayer::OnMouseButtonReleasedEvent(MouseButtonReleasedEvent& e)
+  {
+    return true;
+
+  }
+
+  bool ImGuiLayer::OnMouseMovedEvent(MouseMovedEvent& e)
+  {
+    return true;
+
+  }
+
+  bool ImGuiLayer::OnMouseScrolledEvent(MouseScrolledEvent& e)
+  {
+    return true;
+
+  }
+
+  bool ImGuiLayer::OnKeyPressedEvent(KeyPressedEvent& e)
+  {
+    return true;
+
+  }
+
+  bool ImGuiLayer::OnKeyReleasedEvent(KeyReleasedEvent& e)
+  {
+    return true;
+
+  }
+
+  //bool ImGuiLayer::OnKeyTypedEvent(KeyTypedEvent& e)
+  //{
+  //  return true;
+  //}
+
+  bool ImGuiLayer::OnWindowResizeEvent(WindowResizeEvent& e)
+  {
+    return true;
+
   }
 
 }
