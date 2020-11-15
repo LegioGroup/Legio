@@ -67,7 +67,6 @@ namespace LG {
     MouseButtonEvent(int button)
       : m_Button(button) {}
 
-  private:
     int m_Button;
   };
 
@@ -76,7 +75,8 @@ namespace LG {
   public:
 
     MouseButtonPressedEvent(int button)
-      : MouseButtonEvent(button) {}
+      : MouseButtonEvent(button)
+      {}
 
     virtual std::string ToString() const override
     {
@@ -86,8 +86,7 @@ namespace LG {
     }
 
     EVENT_CLASS_TYPE(MouseButtonPressed)
-  private:
-    int m_Button;
+
   };
 
   class LG_API MouseButtonReleasedEvent : public MouseButtonEvent
@@ -105,8 +104,6 @@ namespace LG {
     }
 
     EVENT_CLASS_TYPE(MouseButtonReleased)
-  private:
-    int m_Button;
   };
 
 }
