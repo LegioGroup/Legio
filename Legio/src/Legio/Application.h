@@ -1,6 +1,7 @@
 #pragma once
 #include "LGCore.h"
 #include "Window.h"
+#include "Legio/LayerStack.h"
 #include <Legio/Events/ApplicationEvent.h>
 
 
@@ -16,10 +17,15 @@ namespace LG{
 
     void OnEvent(Event& e);
 
-    bool OnWindowClosed(WindowCloseEvent& e);
+    void PushLayer(Layer* layer);
+    void PushOverlay(Layer* overlay);
+
   private:
+    bool OnWindowClosed(WindowCloseEvent& e);
+
     std::unique_ptr<Window> m_Window;
-    bool m_running = true;
+    bool m_Running = true;
+    LayerStack m_LayerStack;
 
   };
 
