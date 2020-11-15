@@ -5,6 +5,9 @@
 #include <Legio/Events/MouseEvent.h>
 #include <Legio/Events/KeyEvent.h>
 
+#include <glad/glad.h>
+
+
 namespace LG {
   static bool s_GLFWInitialized = false;
 
@@ -46,6 +49,10 @@ namespace LG {
 
     m_Window = glfwCreateWindow(m_Data.Width, m_Data.Height, m_Data.Title.c_str(), nullptr, nullptr);
     glfwMakeContextCurrent(m_Window);
+
+    int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+    LG_CORE_ASSERT(status, "Failed to initialize Glad!");
+
     glfwSetWindowUserPointer(m_Window, &m_Data);
     SetVSync(true);
 

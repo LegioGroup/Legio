@@ -2,11 +2,14 @@
 .vs/
 bin/
 intermediate/
+Legio/vendor/Glad/bin-int
+
 
 #Files
 *.user
 *.vcxproj
 *.vcxproj.filters
+*.sln
 
 #Exceptions
 !vendor/bin

@@ -14,8 +14,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Legio/vendor/GLFW/include"
+IncludeDir["glad"] = "Legio/vendor/Glad/include"
 
 include "Legio/vendor/GLFW"
+include "Legio/vendor/Glad"
 
 project "Legio"
     location "Legio"
@@ -38,12 +40,14 @@ project "Legio"
     {
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
-        IncludeDir.GLFW
+        IncludeDir.GLFW,
+        IncludeDir.glad
     }
 
     links
     {
         "GLFW",
+        "glad",
         "opengl32.lib"
     }
 
@@ -56,6 +60,7 @@ project "Legio"
         {
             "LG_PLATFORM_WINDOWS",
             "LG_BUILD_DLL",
+            "GLFW_INCLUDE_NONE"
         }
 
         postbuildcommands
