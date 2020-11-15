@@ -2,8 +2,8 @@
 #include "LGCore.h"
 #include "Window.h"
 #include "Legio/LayerStack.h"
-#include <Legio/Events/ApplicationEvent.h>
 
+#include "Events/ApplicationEvent.h"
 
 namespace LG{
 
@@ -20,13 +20,17 @@ namespace LG{
     void PushLayer(Layer* layer);
     void PushOverlay(Layer* overlay);
 
+    inline static Application& Get() { return *s_Instance; }
+    inline Window& GetWindow() const { return *m_Window; }
+
   private:
     bool OnWindowClosed(WindowCloseEvent& e);
 
     std::unique_ptr<Window> m_Window;
     bool m_Running = true;
     LayerStack m_LayerStack;
-
+  private:
+    static Application* s_Instance;
   };
 
   Application* CreateApplication();
