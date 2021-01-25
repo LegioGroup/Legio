@@ -4,74 +4,74 @@
 
 namespace LG {
 
-  class LG_API KeyEvent : public Event
-  {
-  public:
-    inline int GetKeyCode() { return m_KeyCode; }
-
-    EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
-
-  protected:
-    KeyEvent(int keyCode)
-      : m_KeyCode(keyCode) {}
-
-    int m_KeyCode;
-  };
-
-  class LG_API KeyPressedEvent : public KeyEvent
-  {
-  public:
-    KeyPressedEvent(int keyCode, int repeatCount)
-      : KeyEvent(keyCode)
-      , m_RepeatCount(repeatCount) {}
-
-    inline int GetRepeatCount() const { return m_RepeatCount; }
-
-    virtual std::string ToString() const override
+    class LG_API KeyEvent : public Event
     {
-      std::stringstream ss;
-      ss << "KeyPressedEvent: " << m_KeyCode << " (" << m_RepeatCount << " repeats)";
-      return ss.str();
-    }
+    public:
+        inline int GetKeyCode() { return m_KeyCode; }
 
-    EVENT_CLASS_TYPE(KeyPressed)
+        EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
 
-  private:
-    int m_RepeatCount;
-  };
+    protected:
+        KeyEvent(int keyCode)
+            : m_KeyCode(keyCode) {}
 
-  class LG_API KeyReleasedEvent : public KeyEvent
-  {
-  public:
-    KeyReleasedEvent(int keyCode)
-      : KeyEvent(keyCode) {}
+        int m_KeyCode;
+    };
 
-    virtual std::string ToString() const override
+    class LG_API KeyPressedEvent : public KeyEvent
     {
-      std::stringstream ss;
-      ss << "KeyReleasedEvent: " << m_KeyCode;
-      return ss.str();
-    }
+    public:
+        KeyPressedEvent(int keyCode, int repeatCount)
+            : KeyEvent(keyCode)
+            , m_RepeatCount(repeatCount) {}
 
-    EVENT_CLASS_TYPE(KeyReleased)
-  };
+        inline int GetRepeatCount() const { return m_RepeatCount; }
 
-  class LG_API KeyTypedEvent : public KeyEvent
-  {
-  public:
-    KeyTypedEvent(int keyCode)
-      : KeyEvent(keyCode){}
+        virtual std::string ToString() const override
+        {
+            std::stringstream ss;
+            ss << "KeyPressedEvent: " << m_KeyCode << " (" << m_RepeatCount << " repeats)";
+            return ss.str();
+        }
 
-    virtual std::string ToString() const override
+        EVENT_CLASS_TYPE(KeyPressed)
+
+    private:
+        int m_RepeatCount;
+    };
+
+    class LG_API KeyReleasedEvent : public KeyEvent
     {
-      std::stringstream ss;
-      ss << "KeyTypedEvent: " << m_KeyCode;
-      return ss.str();
-    }
+    public:
+        KeyReleasedEvent(int keyCode)
+            : KeyEvent(keyCode) {}
 
-    EVENT_CLASS_TYPE(KeyTyped)
-  
-  };
+        virtual std::string ToString() const override
+        {
+            std::stringstream ss;
+            ss << "KeyReleasedEvent: " << m_KeyCode;
+            return ss.str();
+        }
+
+        EVENT_CLASS_TYPE(KeyReleased)
+    };
+
+    class LG_API KeyTypedEvent : public KeyEvent
+    {
+    public:
+        KeyTypedEvent(int keyCode)
+            : KeyEvent(keyCode) {}
+
+        virtual std::string ToString() const override
+        {
+            std::stringstream ss;
+            ss << "KeyTypedEvent: " << m_KeyCode;
+            return ss.str();
+        }
+
+        EVENT_CLASS_TYPE(KeyTyped)
+
+    };
 
 
 }

@@ -7,20 +7,20 @@
 
 namespace LG
 {
-  class LG_API Log
-  {
-  public:
-    static void Init();
+    class LG_API Log
+    {
+    public:
+        static void Init();
 
-    inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return s_CoreLogger; }
-    inline static std::shared_ptr<spdlog::logger>& GetClientLogger() { return s_ClientLogger; }
-  private:
-    static std::shared_ptr<spdlog::logger> s_CoreLogger;
-    static std::shared_ptr<spdlog::logger> s_ClientLogger;
+        inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return s_CoreLogger; }
+        inline static std::shared_ptr<spdlog::logger>& GetClientLogger() { return s_ClientLogger; }
+    private:
+        static std::shared_ptr<spdlog::logger> s_CoreLogger;
+        static std::shared_ptr<spdlog::logger> s_ClientLogger;
 
-  };
+    };
 
-  //TODO: undef for distribution Builds.
+    //TODO: undef for distribution Builds.
 #define LG_CORE_CRITICAL(...)   ::LG::Log::GetCoreLogger()->log(spdlog::level::critical, __VA_ARGS__);
 #define LG_CORE_ERROR(...)      ::LG::Log::GetCoreLogger()->log(spdlog::level::err, __VA_ARGS__);
 #define LG_CORE_WARN(...)       ::LG::Log::GetCoreLogger()->log(spdlog::level::warn, __VA_ARGS__);

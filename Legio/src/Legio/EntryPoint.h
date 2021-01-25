@@ -7,10 +7,10 @@ extern LG::Application* LG::CreateApplication();
 int main(int argc, char** argv)
 {
 
-  LG::Log::Init();
-  auto app = LG::CreateApplication();
-  app->Run();
+    LG::Log::Init();
+    auto app = LG::CreateApplication();
+    app->Run();
 
-  delete app;
+    delete app;
 }
 #endif

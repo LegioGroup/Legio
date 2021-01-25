@@ -4,16 +4,16 @@
 class SandboxApp : public LG::Application
 {
 public:
-  SandboxApp()
-  {
-    PushOverlay(new LG::ImGuiLayer());
-  };
-  ~SandboxApp()
-  {
-  };
+    SandboxApp()
+    {
+        PushOverlay(new LG::ImGuiLayer());
+    };
+    ~SandboxApp()
+    {
+    };
 };
 
 LG::Application* LG::CreateApplication()
 {
-  return new SandboxApp();
+    return new SandboxApp();
 }
