@@ -3,6 +3,7 @@
 
 #include <glad/glad.h>
 
+#include "Input.h"
 namespace LG
 {
     Application* Application::s_Instance = nullptr;
@@ -33,6 +34,8 @@ namespace LG
                 layer->OnUpdate();
             }
 
+            auto [x, y] = Input::GetMousePosition();
+            LG_CORE_TRACE("{0}, {1}", x, y);
             m_Window->OnUpdate();
             glClearColor(1, 0.5f, 0, 1);
             glClear(GL_COLOR_BUFFER_BIT);
