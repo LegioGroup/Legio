@@ -7,3 +7,6 @@
 [submodule "Legio/vendor/imgui"]
 	path = Legio/vendor/imgui
 	url = https://github.com/LegioGroup/imgui.git
+[submodule "Legio/vendor/glm"]
+	path = Legio/vendor/glm
+	url = https://github.com/g-truc/glm.git

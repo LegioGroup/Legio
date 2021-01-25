@@ -16,6 +16,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Legio/vendor/GLFW/include"
 IncludeDir["glad"] = "Legio/vendor/Glad/include"
 IncludeDir["ImGui"] = "Legio/vendor/imgui"
+IncludeDir["glm"] = "Legio/vendor/glm"
 
 include "Legio/vendor/GLFW"
 include "Legio/vendor/Glad"
@@ -44,7 +45,8 @@ project "Legio"
         "%{prj.name}/vendor/spdlog/include",
         IncludeDir.GLFW,
         IncludeDir.glad,
-        IncludeDir.ImGui
+        IncludeDir.ImGui,
+        IncludeDir.glm
     }
 
     links
@@ -105,7 +107,8 @@ project "Sandbox"
     includedirs
     {
         "Legio/vendor/spdlog/include",
-        "Legio/src"
+        "Legio/src",
+		IncludeDir.glm
     }
 
     links
