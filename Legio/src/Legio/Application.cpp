@@ -35,7 +35,7 @@ namespace LG
             }
 
             auto [x, y] = Input::GetMousePosition();
-            LG_CORE_TRACE("{0}, {1}", x, y);
+            //LG_CORE_TRACE("{0}, {1}", x, y);
             m_Window->OnUpdate();
             glClearColor(1, 0.5f, 0, 1);
             glClear(GL_COLOR_BUFFER_BIT);
@@ -47,7 +47,7 @@ namespace LG
         EventDispatcher dispatcher(e);
         dispatcher.Dispatch<WindowCloseEvent>(LG_BIND_EVENT_FN(Application::OnWindowClosed));
 
-        LG_CORE_TRACE("{0}", e);
+        //LG_CORE_TRACE("{0}", e);
 
         //Events are handled in revers ordered since the end of the layer is what is gonna be rendered last.
         for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)

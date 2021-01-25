@@ -88,7 +88,7 @@ namespace LG {
 
     void ImGuiLayer::OnEvent(Event& e)
     {
-        LG_TRACE("ImGuiLayer::{0}", e);
+        //LG_TRACE("ImGuiLayer::{0}", e);
         EventDispatcher dispatcher(e);
         dispatcher.Dispatch<MouseButtonPressedEvent>(LG_BIND_EVENT_FN(ImGuiLayer::OnMouseButtonPressedEvent));
         dispatcher.Dispatch<MouseButtonReleasedEvent>(LG_BIND_EVENT_FN(ImGuiLayer::OnMouseButtonReleasedEvent));
