@@ -24,8 +24,10 @@ include "Legio/vendor/imgui"
 
 project "Legio"
     location "Legio"
-    kind "SharedLib"
+    kind "StaticLib"
     language "C++"
+    cppdialect "C++17"
+    staticruntime "on"
     
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("intermediate/" .. outputdir .. "/%{prj.name}")
@@ -58,7 +60,6 @@ project "Legio"
     }
 
     filter "system:windows"
-        cppdialect "C++17"
         staticruntime "On"
         systemversion "latest"    
         
@@ -69,31 +70,28 @@ project "Legio"
             "GLFW_INCLUDE_NONE"
         }
 
-        postbuildcommands
-        {
-            ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
-        }
-
     filter "configurations:Debug"
         defines "LG_DEBUG"
         buildoptions "/MDd"
-        symbols "On"
+        symbols "on"
 
     filter "configurations:Release"
         defines "LG_RELEASE"
         buildoptions "/MD"
-        optimize "On"
+        optimize "on"
 
     filter "configurations:Dist"
         defines "LG_DIST"
         buildoptions "/MD"
-        optimize "On"
+        optimize "on"
 
 
 project "Sandbox"
     location "Sandbox"
     kind "ConsoleApp"
     language "C++"
+    cppdialect "C++17"
+    staticruntime "on"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("intermediate/" .. outputdir .. "/%{prj.name}")
@@ -117,26 +115,27 @@ project "Sandbox"
     }
 
     filter "system:windows"
-        cppdialect "C++17"
         staticruntime "On"
         systemversion "latest"    
         
-        defines
-        {
+        defines {
             "LG_PLATFORM_WINDOWS"
         }
 
     filter "configurations:Debug"
-        defines "LG_DEBUG"
+        defines {
+            "LG_DEBUG",
+            "LG_ENABLE_ASSERTS"
+        }
         buildoptions "/MDd"
-        symbols "On"
+        symbols "on"
 
     filter "configurations:Release"
         defines "LG_RELEASE"
         buildoptions "/MD"
-        optimize "On"
+        optimize "on"
 
     filter "configurations:Dist"
         defines "LG_DIST"
         buildoptions "/MD"
-        optimize "On"
+        optimize "on"

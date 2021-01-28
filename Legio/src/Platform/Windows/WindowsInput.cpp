@@ -10,8 +10,8 @@ namespace LG
     bool WindowsInput::IsKeyPressedImpl(int keyCode)
     {
         const auto& window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
-        auto state = glfwGetKey(window, keyCode);
-        return state == (GLFW_PRESS || GLFW_REPEAT);
+        int state = glfwGetKey(window, keyCode);
+        return state == GLFW_PRESS || state == GLFW_REPEAT;
     }
 
     bool WindowsInput::IsMouseButtonPressedImpl(int button)

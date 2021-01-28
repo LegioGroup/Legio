@@ -1,10 +1,14 @@
 #pragma once
 
 #ifdef LG_PLATFORM_WINDOWS
-#if LG_BUILD_DLL
-    #define LG_API __declspec(dllexport)
+#if LG_DYNAMIC_LINK
+    #if LG_BUILD_DLL
+        #define LG_API __declspec(dllexport)
+    #else
+       #define LG_API __declspec(dllimport)
+    #endif
 #else
-   #define LG_API __declspec(dllimport)
+    #define LG_API
 #endif
 #else
     #error Legio only supports Windows.

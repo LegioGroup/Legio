@@ -23,11 +23,11 @@ namespace LG {
         }
 
         EVENT_CLASS_TYPE(MouseMoved)
-            EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
+        EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
 
     private:
-        int m_MouseX;
-        int m_MouseY;
+        float m_MouseX;
+        float m_MouseY;
     };
 
 
@@ -49,11 +49,11 @@ namespace LG {
         }
 
         EVENT_CLASS_TYPE(MouseScrolled)
-            EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
+        EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
 
     private:
-        int m_XOffset;
-        int m_YOffset;
+        float m_XOffset;
+        float m_YOffset;
     };
 
     class LG_API MouseButtonEvent : public Event
