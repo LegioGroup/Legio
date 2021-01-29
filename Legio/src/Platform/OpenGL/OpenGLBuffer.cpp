@@ -7,10 +7,9 @@ namespace LG
 
     OpenGlVertexBuffer::OpenGlVertexBuffer(float* vertices, uint32_t size)
     {
-        glCreateBuffers(size, &m_programID);
+        glCreateBuffers(1, &m_programID);
         glBindBuffer(GL_ARRAY_BUFFER, m_programID);
         glBufferData(GL_ARRAY_BUFFER, size, vertices, GL_STATIC_DRAW);
-
     }
 
     OpenGlVertexBuffer::~OpenGlVertexBuffer()

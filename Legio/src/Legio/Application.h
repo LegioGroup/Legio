@@ -8,6 +8,7 @@
 #include "Legio/ImGui/ImGuiLayer.h"
 #include "Legio/Renderer/Shader.h"
 
+#include "Renderer/Buffer.h"
 namespace LG {
 
     class LG_API Application
@@ -36,8 +37,8 @@ namespace LG {
         LayerStack m_LayerStack;
 
         unsigned int m_vertexArray;
-        unsigned int m_vertexBuffer;
-        unsigned int m_indexBuffer;
+        std::unique_ptr<IndexBuffer> m_indexBuffer;
+        std::unique_ptr<VertexBuffer> m_vertexBuffer;
     private:
         static Application* s_Instance;
     };
