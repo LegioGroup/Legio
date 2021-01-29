@@ -1,12 +1,11 @@
 #include "lgpch.h"
-
 #include "WindowsWindow.h"
+
 #include <Legio/Events/ApplicationEvent.h>
 #include <Legio/Events/MouseEvent.h>
 #include <Legio/Events/KeyEvent.h>
 
-#include <glad/glad.h>
-
+#include "Platform/OpenGL/OpenGLContext.h"
 
 namespace LG {
     static bool s_GLFWInitialized = false;
@@ -39,6 +38,7 @@ namespace LG {
 
         LG_CORE_INFO("Creating window {0} ({1}, {2})", m_Data.Title, m_Data.Width, m_Data.Height);
 
+
         if (!s_GLFWInitialized)
         {
             int success = glfwInit();
@@ -48,10 +48,12 @@ namespace LG {
         }
 
         m_Window = glfwCreateWindow(m_Data.Width, m_Data.Height, m_Data.Title.c_str(), nullptr, nullptr);
-        glfwMakeContextCurrent(m_Window);
 
-        int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-        LG_CORE_ASSERT(status, "Failed to initialize Glad!");
+        m_context = new OpenGLContext(m_Window);
+
+        m_context->Init();
+
+
 
         glfwSetWindowUserPointer(m_Window, &m_Data);
         SetVSync(true);
@@ -153,7 +155,7 @@ namespace LG {
     void LG::WindowsWindow::OnUpdate()
     {
         glfwPollEvents();
-        glfwSwapBuffers(m_Window);
+        m_context->SwapBuffers();
     }
 
     void LG::WindowsWindow::SetVSync(bool enabled)

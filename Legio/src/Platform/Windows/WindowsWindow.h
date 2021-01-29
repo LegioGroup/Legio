@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Legio/Window.h"
+
+#include "Legio/Renderer/GraphicsContext.h"
 #include <GLFW/glfw3.h>
 
 namespace LG {
@@ -29,6 +31,7 @@ namespace LG {
 
     private:
         GLFWwindow* m_Window;
+        GraphicsContext* m_context;
 
         struct WindowData
         {
