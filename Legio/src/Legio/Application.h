@@ -6,6 +6,7 @@
 #include "Events/Event.h"
 #include "Events/ApplicationEvent.h"
 #include "Legio/ImGui/ImGuiLayer.h"
+#include "Legio/Renderer/Shader.h"
 
 namespace LG {
 
@@ -29,6 +30,7 @@ namespace LG {
         bool OnWindowClosed(WindowCloseEvent& e);
 
         std::unique_ptr<Window> m_Window;
+        std::unique_ptr<Shader> m_Shader;
         ImGuiLayer* m_ImGuiLayer;
         bool m_Running = true;
         LayerStack m_LayerStack;
