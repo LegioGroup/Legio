@@ -32,6 +32,10 @@ namespace LG {
         ImGuiLayer* m_ImGuiLayer;
         bool m_Running = true;
         LayerStack m_LayerStack;
+
+        unsigned int m_vertexArray;
+        unsigned int m_vertexBuffer;
+        unsigned int m_indexBuffer;
     private:
         static Application* s_Instance;
     };
