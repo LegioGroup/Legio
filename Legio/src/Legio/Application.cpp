@@ -54,7 +54,7 @@ namespace LG
         m_vertexBuffer->SetLayout(layout);
 
         uint32_t index = 0;
-        for (const auto& element : layout)
+        for (const auto& element : m_vertexBuffer->GetLayout())
         {
             glEnableVertexAttribArray(index);
             glVertexAttribPointer(index, element.GetComponentCount(), ShaderDataTypeToOpenGlBaseType(element.Type),
