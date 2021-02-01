@@ -26,7 +26,6 @@ namespace LG
     {
         glBindBuffer(GL_ARRAY_BUFFER, 0);
     }
-
     //----------------INDEX BUFFER------------------------
 
     OpenGlIndexBuffer::OpenGlIndexBuffer(uint32_t* indices, uint32_t count)

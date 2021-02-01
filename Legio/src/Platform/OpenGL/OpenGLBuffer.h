@@ -10,8 +10,11 @@ namespace LG
         virtual ~OpenGlVertexBuffer() override;
         virtual void Bind() const override;
         virtual void Unbind() const override;
+        virtual void inline SetLayout(const BufferLayout& layout) override { m_layout = layout; };
+        virtual const inline BufferLayout& GetLayout() override { return m_layout; };
     private:
         uint32_t m_programID;
+        BufferLayout m_layout;
     };
 
     class OpenGlIndexBuffer : public IndexBuffer
